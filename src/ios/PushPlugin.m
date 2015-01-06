@@ -105,11 +105,14 @@
         UserNotificationTypes |= UIUserNotificationTypeAlert;
 #endif
     }
-
-    notificationTypes |= UIRemoteNotificationTypeNewsstandContentAvailability;
+    
+    // Issue missing ios7 badge updates
+    // https://github.com/phonegap-build/PushPlugin/issues/365
+    // Fixed when newsstand contant
+    //notificationTypes |= UIRemoteNotificationTypeNewsstandContentAvailability;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     UserNotificationTypes |= UIUserNotificationActivationModeBackground;
-#endif
+#endifnewsstand
 
     self.callback = [options objectForKey:@"ecb"];
 
